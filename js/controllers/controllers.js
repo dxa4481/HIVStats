@@ -20,6 +20,8 @@ angular.module('HIVControllers', [])
         $scope.gender = '';
         $scope.age = '';
         $scope.race = '';
+        $scope.RA = 1;
+        $scope.IV = 1;
 
         $scope.states = states;
         $scope.ages = ages;
@@ -58,7 +60,6 @@ angular.module('HIVControllers', [])
                 if(total != 0){$scope.rate = infected / total}
             }
             if($scope.countyName){
-                console.log($scope.countyName)
                 var countyRate = Number($scope.county["County Rate "]);
                 if(countyRate > 0){
                     $scope.rate = countyRate / 100000;
@@ -83,13 +84,23 @@ angular.module('HIVControllers', [])
                     multiplier *= raceRate / Number($scope.county["County Rate "])
                 }
             }
-            console.log(multiplier)
             $scope.rate *= multiplier
 
         }
 
+        $scope.getPercentage = function(currentRate, times){
+            return 100 * (1 - Math.pow(1 - currentRate, times))
+        }
+
+        $scope.setRA = function(RA){
+            $scope.RA = RA;
+        }
+
+        $scope.setIV = function(IV){
+            $scope.IV = IV;
+        }
+
         $scope.getStateData = function(state){
-            console.log(state);
             State.get(state).
                 success(function(data){
                     $scope.stateData = data;

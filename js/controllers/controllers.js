@@ -10,6 +10,11 @@ angular.module('HIVControllers', [])
 
         $scope.states = states;
         $scope.ages = ages;
+        $scope.setCountyName = function(name){
+            $scope.countyName = name;
+            console.log("being called!")
+
+        }
         $scope.getStateData = function(state){
             console.log(state);
             State.get(state).

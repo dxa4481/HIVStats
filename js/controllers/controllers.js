@@ -88,8 +88,8 @@ angular.module('HIVControllers', [])
 
         }
 
-        $scope.getPercentage = function(currentRate, times){
-            return 100 * (1 - Math.pow(1 - currentRate, times))
+        $scope.getPercentage = function(currentRate, activityRate, times){
+            return 100 * currentRate * (1 - Math.pow(1 - activityRate, times))
         }
 
         $scope.setRA = function(RA){

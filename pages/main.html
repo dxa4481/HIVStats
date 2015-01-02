@@ -43,11 +43,11 @@
     </thead>
     <tbody>
         <tr>
-            <th>{{getPercentage(rate * infectionRates["Needle"], NS)}}%</th>
-            <th ng-if="gender!=='Female'">{{getPercentage(rate * infectionRates["Receptive anal"], RA)}}%</th>
-            <th>{{getPercentage(rate * infectionRates["Insertive anal"], IA)}}%</th>
-            <th>{{getPercentage(rate * infectionRates["Receptive Vaginal"], RV)}}%</th>
-            <th ng-if="gender!=='Male'">{{getPercentage(rate * infectionRates["Insertive Vaginal"], IV)}}%</th>
+            <th>{{getPercentage(rate, infectionRates["Needle"], NS)}}%</th>
+            <th ng-if="gender!=='Female'">{{getPercentage(rate, infectionRates["Receptive anal"], RA)}}%</th>
+            <th>{{getPercentage(rate, infectionRates["Insertive anal"], IA)}}%</th>
+            <th>{{getPercentage(rate, infectionRates["Receptive Vaginal"], RV)}}%</th>
+            <th ng-if="gender!=='Male'">{{getPercentage(rate, infectionRates["Insertive Vaginal"], IV)}}%</th>
     </tbody>
 </table>
 

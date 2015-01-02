@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-4">
             <div class="well span6">
                 <form name="form" class="form-horizontal" role="form" novalidate>
                     <div class="form-group">
@@ -26,8 +26,28 @@
 
                     </div>
                 </form>
-                <p> Current chance of your partner being infected is {{rate}} </p>
+                <p> Current chance of your partner being infected is {{100 * rate}}%. Shown below are rates of infection for various unprotected sexual activities.</p>
             </div>
         </div>
     </div>
 </div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Needle Sharing</th>
+            <th ng-if="gender!=='Female'">Anal: You recieving ejaculate</th>
+            <th>Anal: You inserting</th>
+            <th>Vaginal: You recieving ejaculate</th>
+            <th ng-if="gender!=='Male'">Vaginal: You inserting</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>{{100 * rate * infectionRates["Needle"]}}%</th>
+            <th ng-if="gender!=='Female'">{{100 * rate * infectionRates["Receptive anal"]}}%</th>
+            <th>{{100 * rate * infectionRates["Insertive anal"]}}%</th>
+            <th>{{100 * rate * infectionRates["Receptive Vaginal"]}}%</th>
+            <th ng-if="gender!=='Male'">{{100 * rate * infectionRates["Insertive Vaginal"]}}%</th>
+    </tbody>
+</table>
+

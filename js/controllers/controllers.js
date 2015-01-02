@@ -2,11 +2,19 @@ var states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 
 var ages = ["Age 13-24", "Age 25-34", "Age 35-44", "Age 45-54", "Age 55+"]
 var genders = ["Male", "Female"]
 var races = ["Black", "White", "Hispanic", "Other"]
+var infectionRates = {
+    "Needle": 63/10000, 
+    "Receptive anal": 138/10000,
+    "Insertive anal": 11/10000,
+    "Receptive Vaginal": 8/10000,
+    "Insertive Vaginal": 4/10000,
+}
 
 
 angular.module('HIVControllers', [])
     .controller('mainController', function($scope, State) {
-        $scope.rate = 1201100.0 / 316100000.0
+        $scope.rate = 1201100 / 316100000
+        $scope.infectionRates = infectionRates;
         $scope.state = '';
         $scope.countyName = '';
         $scope.gender = '';

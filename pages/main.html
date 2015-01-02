@@ -4,23 +4,21 @@
             <div class="well span6">
                 <form name="form" class="form-horizontal" role="form" novalidate>
                     <div class="form-group">
-                        <p ng-if="state===''"> Choose a state </p>
-                        <select class="form-control" ng-change="getStateData(state)" ng-options="state for state in states" ng-model="state" required autofocus/><br />
+                        <p ng-if="!state"> Choose a state </p>
+                        <select class="form-control" ng-change="getStateData(state)" ng-options="state for state in states" ng-model="state" required autofocus/></select><br />
                     </div> 
-                    <div ng-if="state!==''" class="form-group">
-                        <p ng-if="countyName===''"> Choose a county </p>
-                        <select class="form-control" ng-change="setCountyName(county['County Name '])" ng-options="county as county['County Name '] for county in stateData track by county['County Name ']" ng-model="county" required><br />
+                    <div ng-if="state" class="form-group">
+                        <p ng-if="!countyName"> Choose a county </p>
+                        <select class="form-control" ng-change="setCountyName(county['County Name '])" ng-options="county as county['County Name '] for county in stateData track by county['County Name ']" ng-model="county" required></select><br />
                     </div>
-                    <div ng-if="countyName!==''" class="form-group">
-                        <p ng-if="gender===''"> Choose your partner's gender </p>
-                        <select class="form-control" ng-options="gender for gender in ['male', 'female']" ng-model="gender" required/><br />
+                    <div ng-if="countyName" class="form-group">
+                        <p ng-if="!gender"> Choose your partner's gender</p>
+                        <select class="form-control" ng-options="gender for gender in genders" ng-change="setGender(gender)" ng-model="gender" required/></select><br />
                     </div>
-                    <div ng-if="gender!==''" class="form-group">
-                        <p ng-if="age===''"> Choose your partner's age bracket </p>
-                        <select class="form-control" ng-options="ages for age in ages" ng-model="age" required/><br />
+                    <div ng-if="gender" class="form-group">
+                        <p ng-if="!age"> Choose your partner's age bracket </p>
+                        <select class="form-control" ng-options="age for age in ages" ng-change="setAge(age)" ng-model="age" required/></select><br />
                     </div>
-
-
                 </form>
             </div>
         </div>

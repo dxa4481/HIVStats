@@ -9,6 +9,7 @@
                     </div> 
                     <div ng-if="state!==''" class="form-group">
                         <p ng-if="countyName===''"> Choose a county </p>
+                        <p> {{countyName}} </p>
                         <select class="form-control" ng-change="countyName=county['County Name ']" ng-options="county as county['County Name '] for county in stateData track by county['County Name ']" ng-model="county" required><br />
                     </div>
                     <div ng-if="countyName!==''" class="form-group">

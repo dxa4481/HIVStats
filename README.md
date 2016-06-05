@@ -1,4 +1,4 @@
-dxa4481.github.io
+HIVStats
 =================
 
 This application makes HIV statistics very accessible.
